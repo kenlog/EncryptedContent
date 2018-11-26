@@ -4,10 +4,9 @@
 
 <div class="confirm">
     <p class="alert alert-info">
-        <?= t('Do you really want to remove this Encrypted Content?') ?>
+        <?= t('Do you really want to remove this Encrypted Content? ') ?>
+        <strong><?= $name; ?></strong>
     </p>
-
-    <p><strong><?= $key; ?></strong></p>
 
     <div class="form-actions">
         <?= $this->url->link(t('Yes'), 'EncryptedContentController', 'removeTask', ['plugin' => 'encryptedContent', 'task_id' => $task['id'], 'project_id' => $task['project_id'], 'name' => $name], true, 'btn btn-red') ?>
