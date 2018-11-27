@@ -7,11 +7,13 @@
 <?php else: ?>
     <table class="table-small table-fixed">
     <tr>
-        <th class="column-20"><?= t('Reference') ?></th>
-        <th class="column-70"><?= t('Content') ?></th>
+        <th class="column-10"><?= t('Reference') ?></th>
+        <th class="column-80"><?= t('Content') ?></th>
         <th class="column-10"><?= t('Action') ?></th>
     </tr>
-    <?= $this->modal->small('trash-o', t('Remove everything'), 'EncryptedContentController', 'confirmAllTask', ['plugin' => 'encryptedContent', 'task_id' => $task['id'], 'project_id' => $project['id'], 'name' => $name], false, 'popover') ?>
+    <div style="margin-bottom: 20px;">
+        <?= $this->modal->small('trash-o', t('Remove everything'), 'EncryptedContentController', 'confirmAllTask', ['plugin' => 'encryptedContent', 'task_id' => $task['id'], 'project_id' => $project['id'], 'name' => $name], false, 'popover') ?>
+    </div>
     <?php foreach ($metadata as $name => $value): ?>
     <?php if (!empty($value)): ?>
     <tr>
@@ -22,10 +24,10 @@
                 <a href="#" class="dropdown-menu dropdown-menu-link-icon"><i class="fa fa-cog"></i><i class="fa fa-caret-down"></i></a>
                 <ul>
                     <li>
-                        <?= $this->modal->small('remove', t('Remove'), 'EncryptedContentController', 'confirmTask', ['plugin' => 'encryptedContent', 'task_id' => $task['id'], 'project_id' => $project['id'], 'name' => $name], false, 'popover') ?>
+                        <?= $this->modal->medium('edit', t('Edit'), 'EncryptedContentController', 'editTask', ['plugin' => 'encryptedContent', 'task_id' => $task['id'], 'project_id' => $project['id'], 'name' => $name], false, 'popover') ?>
                     </li>
                     <li>
-                        <?= $this->modal->medium('edit', t('Edit'), 'EncryptedContentController', 'editTask', ['plugin' => 'encryptedContent', 'task_id' => $task['id'], 'project_id' => $project['id'], 'name' => $name], false, 'popover') ?>
+                        <?= $this->modal->small('remove', t('Remove'), 'EncryptedContentController', 'confirmTask', ['plugin' => 'encryptedContent', 'task_id' => $task['id'], 'project_id' => $project['id'], 'name' => $name], false, 'popover') ?>
                     </li>
                 </ul>
             </div>
