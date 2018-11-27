@@ -11,6 +11,7 @@
         <th class="column-70"><?= t('Content') ?></th>
         <th class="column-10"><?= t('Action') ?></th>
     </tr>
+    <?= $this->modal->small('trash-o', t('Remove everything'), 'EncryptedContentController', 'confirmAllTask', ['plugin' => 'encryptedContent', 'task_id' => $task['id'], 'project_id' => $project['id'], 'name' => $name], false, 'popover') ?>
     <?php foreach ($metadata as $name => $value): ?>
     <?php if (!empty($value)): ?>
     <tr>
@@ -36,5 +37,5 @@
 <?php endif ?>
 
 <?php if ($add_form): ?>
-<?= $this->render('encryptedContent:task/form', ['task' => $task, 'project' => $project, 'form_headline' => t('Add Encrypted Content'), 'values' => [] ]) ?>
+<?= $this->render('encryptedContent:task/formnew', ['task' => $task, 'project' => $project, 'form_headline' => t('Add Encrypted Content'), 'values' => [] ]) ?>
 <?php endif ?>

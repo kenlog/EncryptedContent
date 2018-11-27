@@ -38,6 +38,18 @@ class EncryptedContentController extends BaseController
         
         $encrypt = $this->helper->EncryptedContentHelper->EncryptedValue($values['value']);
 
+        $this->encryptedContentModel->save($task['id'], [$encrypt]);
+
+        return $this->response->redirect($this->helper->url->to('EncryptedContentController', 'task', ['plugin' => 'encryptedContent', 'task_id' => $task['id'], 'project_id' => $task['project_id']]), true);
+    }
+
+    public function updateTask()
+    {
+        $task = $this->getTask();
+        $values = $this->request->getValues();
+        
+        $encrypt = $this->helper->EncryptedContentHelper->EncryptedValue($values['value']);
+
         $this->encryptedContentModel->save($task['id'], [$values['name'] => $encrypt]);
 
         return $this->response->redirect($this->helper->url->to('EncryptedContentController', 'task', ['plugin' => 'encryptedContent', 'task_id' => $task['id'], 'project_id' => $task['project_id']]), true);
@@ -86,5 +98,27 @@ class EncryptedContentController extends BaseController
             )
         );
     }
-    
+
+    public function removeAllTask()
+    {
+        $task = $this->getTask();
+
+        $this->encryptedContentModel->removeAll($task['id']);
+
+        return $this->response->redirect($this->helper->url->to('EncryptedContentController', 'task', ['plugin' => 'encryptedContent', 'task_id' => $task['id'], 'project_id' => $task['project_id']]), true);
+    }
+
+    public function confirmAllTask()
+    {
+        $project = $this->getProject();
+        $task = $this->getTask();
+
+        $this->response->html($this->template->render('encryptedContent:task/removeall', 
+                [
+                    'task'    => $task,
+                    'project' => $project,
+                ]
+            )
+        );
+    }
 }

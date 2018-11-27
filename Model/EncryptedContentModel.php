@@ -52,6 +52,7 @@ class EncryptedContentModel extends Base
             ->getAll('name', 'value');
     }
 
+
     /**
      * Get a metadata for the given entity
      *
@@ -141,6 +142,22 @@ class EncryptedContentModel extends Base
         return $this->db->table($this->getTable())
             ->eq($this->getEntityKey(), $entity_id)
             ->eq('name', $name)
+            ->remove();
+    }
+
+    /**
+     * Remove all metadata
+     *
+     * @access public
+     * @param  integer $entity_id
+     * @return bool
+     */
+    public function removeAll($entity_id)
+    {
+        return $this->db
+            ->table($this->getTable())
+            ->eq($this->getEntityKey(), $entity_id)
+            ->getAll()
             ->remove();
     }
 }
