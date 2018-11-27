@@ -2,6 +2,7 @@
 
 namespace Kanboard\Plugin\EncryptedContent;
 
+use Kanboard\Core\Translator;
 use Kanboard\Core\Plugin\Base;
 
 
@@ -14,6 +15,11 @@ class Plugin extends Base
         //Task
         $this->template->hook->attach('template:task:sidebar:information', 'EncryptedContent:task/sidebar');
         $this->template->hook->attach('template:task:details:bottom', 'EncryptedContent:task/metasummary');
+    }
+
+    public function onStartup()
+    {
+        Translator::load($this->languageModel->getCurrentLanguage(), __DIR__.'/Locale');
     }
 
     public function getClasses()
