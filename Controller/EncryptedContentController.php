@@ -38,7 +38,7 @@ class EncryptedContentController extends BaseController
         
         $encrypt = $this->helper->EncryptedContentHelper->EncryptedValue($values['value']);
 
-        $this->encryptedContentModel->save($task['id'], [$encrypt]);
+        $this->encryptedContentModel->save($task['id'], [$values['name'] => $encrypt]);
 
         return $this->response->redirect($this->helper->url->to('EncryptedContentController', 'task', ['plugin' => 'encryptedContent', 'task_id' => $task['id'], 'project_id' => $task['project_id']]), true);
     }
