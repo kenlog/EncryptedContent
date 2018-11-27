@@ -16,6 +16,15 @@ class Plugin extends Base
         $this->template->hook->attach('template:task:details:bottom', 'EncryptedContent:task/metasummary');
     }
 
+    public function getClasses()
+    {
+        return [
+            'Plugin\EncryptedContent\Model' => [
+                'EncryptedContentModel',
+            ],
+        ];
+    }
+
     public function getPluginName()
     {
         return 'EncryptedContent';

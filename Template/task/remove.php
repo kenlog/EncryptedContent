@@ -5,7 +5,7 @@
 <div class="confirm">
     <p class="alert alert-info">
         <?= t('Do you really want to remove this Encrypted Content? ') ?>
-        <strong><?= $name; ?></strong>
+        <strong><?= t('Reference') ?>: <?= $name; ?></strong>
     </p>
 
     <div class="form-actions">

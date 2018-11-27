@@ -3,6 +3,7 @@
 namespace Kanboard\Plugin\EncryptedContent\Controller;
 
 use Kanboard\Controller\BaseController;
+use Kanboard\Plugin\EncryptedContent\Model\EncryptedContentModel;
 
 /**
  * 
@@ -17,7 +18,7 @@ class EncryptedContentController extends BaseController
         $project = $this->getProject();
         $task = $this->getTask();
 
-        $metadata = $this->taskMetadataModel->getAll($task['id']);
+        $metadata = $this->encryptedContentModel->getAll($task['id']);
 
         $this->response->html($this->helper->layout->task('EncryptedContent:task/metadata', 
                 ['title' => t('Encrypted Content'),
@@ -37,7 +38,7 @@ class EncryptedContentController extends BaseController
         
         $encrypt = $this->helper->EncryptedContentHelper->EncryptedValue($values['value']);
 
-        $this->taskMetadataModel->save($task['id'], [$values['name'] => $encrypt]);
+        $this->encryptedContentModel->save($task['id'], [$encrypt]);
 
         return $this->response->redirect($this->helper->url->to('EncryptedContentController', 'task', ['plugin' => 'encryptedContent', 'task_id' => $task['id'], 'project_id' => $task['project_id']]), true);
     }
@@ -47,7 +48,7 @@ class EncryptedContentController extends BaseController
         $project = $this->getProject();
         $task = $this->getTask();
         $name = $this->request->getStringParam('name');
-        $metadata = $this->taskMetadataModel->get($task['id'], $name);
+        $metadata = $this->encryptedContentModel->get($task['id'], $name);
 
         $this->response->html($this->template->render('encryptedContent:task/form', 
                 [
@@ -65,7 +66,7 @@ class EncryptedContentController extends BaseController
         $task = $this->getTask();
         $name = $this->request->getStringParam('name');
 
-        $this->taskMetadataModel->remove($task['id'], $name);
+        $this->encryptedContentModel->remove($task['id'], $name);
 
         return $this->response->redirect($this->helper->url->to('EncryptedContentController', 'task', ['plugin' => 'encryptedContent', 'task_id' => $task['id'], 'project_id' => $task['project_id']]), true);
     }

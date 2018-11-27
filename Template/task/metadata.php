@@ -7,7 +7,7 @@
 <?php else: ?>
     <table class="table-small table-fixed">
     <tr>
-        <th class="column-20"><?= t('Name') ?></th>
+        <th class="column-20"><?= t('Reference') ?></th>
         <th class="column-70"><?= t('Content') ?></th>
         <th class="column-10"><?= t('Action') ?></th>
     </tr>

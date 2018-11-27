@@ -1,5 +1,5 @@
 <?php 
-$metadata = $this->task->taskMetadataModel->getAll($task['id']);
+$metadata = $this->task->encryptedContentModel->getAll($task['id']);
 ?>
 <?php if (!empty($metadata)): ?>
     <section class="accordion-section" style="margin-top: 10px;">
@@ -10,7 +10,6 @@ $metadata = $this->task->taskMetadataModel->getAll($task['id']);
             <article class="markdown">
                 <p>
                 <?php foreach ($metadata as $name => $value): ?>
-                    <?= $name ?> <br>
                     <?= $this->EncryptedContentHelper->renderDecrypt($value) ?> <br>
                 <?php endforeach ?>
                 </p>
