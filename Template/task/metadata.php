@@ -16,7 +16,7 @@
     <?php if (!empty($value)): ?>
     <tr>
         <td><?= $name ?></td>
-        <td><?= $this->EncryptedContentHelper->renderDecrypt($value) ?></td>
+        <td><?= $this->text->markdown($this->EncryptedContentHelper->renderDecrypt($value)) ?></td>
         <td>
             <div class="dropdown">
                 <a href="#" class="dropdown-menu dropdown-menu-link-icon"><i class="fa fa-cog"></i><i class="fa fa-caret-down"></i></a>

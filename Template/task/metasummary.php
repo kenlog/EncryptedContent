@@ -10,11 +10,10 @@ $metadata = $this->task->encryptedContentModel->getAll($task['id']);
             <article class="markdown">
                 <p>
                 <?php foreach ($metadata as $name => $value): ?>
-                    <?= $this->EncryptedContentHelper->renderDecrypt($value) ?> <br>
+                    <?= $this->text->markdown($this->EncryptedContentHelper->renderDecrypt($value)) ?>
                 <?php endforeach ?>
                 </p>
             </article>
         </div>
     </section>
 <?php endif ?>
-

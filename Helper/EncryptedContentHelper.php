@@ -27,17 +27,15 @@ class EncryptedContentHelper extends Base
     }
 
     /**
-     * Display a textarea
+     * Display a markdown editor
      *
      * @access public
-     * @param  string  $name        Field name
-     * @param  array   $values      Form values
-     * @param  array   $attributes  HTML attributes
-     * @param  string  $class       CSS class
+     * @param  string  $name     Field name
+     * @param  array   $values   Form values
+     * @param  array   $attributes
      * @return string
      */
-
-    public function renderEncryptedTextarea($name, $values = array(), array $attributes = array(), $class = '')
+    public function renderEncryptedtextEditor($name, $values = array(), array $attributes = array())
     {
         if ($values[$name] == null) {
             $content = null;
@@ -46,10 +44,29 @@ class EncryptedContentHelper extends Base
 		} elseif ($values[$name]) {
             $content = Crypto::encrypt($values[$name], $this->loadEncryptionKeyFromConfig());
         }
-        $html  = '<textarea name="'.$name.'" id="form-'.$name.'-test" class="'.$class.'" ';
-        $html .= implode(' ', $attributes).'>';
-        $html .= isset($content) ? $content : '';
-        $html .= '</textarea>';
+        $params = array(
+            'name' => $name,
+            'required' => 'required',
+            'tabindex' => isset($attributes['tabindex']) ? $attributes['tabindex'] : '-1',
+            'labelPreview' => t('Preview'),
+            'labelWrite' => t('Write'),
+            'placeholder' => t('Write your text in Markdown'),
+            'autofocus' => isset($attributes['autofocus']) && $attributes['autofocus'],
+            'suggestOptions' => array(
+                'triggers' => array(
+                    '#' => $this->helper->url->to('TaskAjaxController', 'suggest', array('search' => 'SEARCH_TERM')),
+                )
+            ),
+        );
+
+        if (isset($values['project_id'])) {
+            $params['suggestOptions']['triggers']['@'] = $this->helper->url->to('UserAjaxController', 'mention', array('project_id' => $values['project_id'], 'search' => 'SEARCH_TERM'));
+        }
+
+        $html = '<div class="js-text-editor" data-params=\''.json_encode($params, JSON_HEX_APOS).'\'>';
+        $html .= '<script type="text/template">'.$content.'</script>';
+        $html .= '</div>';
+
         return $html;
     }
 

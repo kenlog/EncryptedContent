@@ -4,7 +4,7 @@
         <?= $this->form->input('hidden', 'name', $values, [], ['placeholder="'.t('Name').'"']) ?>
     <div>
         <?= $this->form->label(t('Content'), 'Content') ?>
-        <?= $this->EncryptedContentHelper->renderEncryptedTextarea('value', $values, ['required', 'placeholder="'.t('Content').'"']) ?>
+        <?= $this->EncryptedContentHelper->renderEncryptedtextEditor('value', $values, ['required', 'placeholder="'.t('Content').'"']) ?>
     </div>
     <input type="submit" value="<?= t('Save') ?>" class="btn btn-blue"/>
 </form>
