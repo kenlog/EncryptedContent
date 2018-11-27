@@ -116,7 +116,6 @@ class EncryptedContentModel extends Base
                     ));
             } else {
                 $results[] = $this->db->table($this->getTable())->insert(array(
-                    'name' => $key,
                     'value' => $value,
                     $this->getEntityKey() => $entity_id,
                     'changed_on' => $timestamp,
