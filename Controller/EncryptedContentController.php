@@ -121,4 +121,19 @@ class EncryptedContentController extends BaseController
             )
         );
     }
+
+    public function randomKey()
+    {
+        $project = $this->getProject();
+        $task = $this->getTask();
+
+        $this->response->html($this->template->render('encryptedContent:task/randomkey', 
+                [
+                    'task'    => $task,
+                    'project' => $project,
+                ]
+            )
+        );
+    }
+
 }

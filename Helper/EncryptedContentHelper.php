@@ -4,9 +4,6 @@ namespace Kanboard\Plugin\EncryptedContent\Helper;
 
 require_once __DIR__.'/../vendor/autoload.php';
 
-include '/var/www/html/key.php';
-
-
 use Kanboard\Core\Base;
 use Defuse\Crypto\Key;
 use Defuse\Crypto\Crypto;
@@ -21,9 +18,30 @@ class EncryptedContentHelper extends Base
 {
     
     protected function loadEncryptionKeyFromConfig()
-    {
-        $keyAscii = rtrim(KEY);
+    {   
+        $key = $this->request->getRawValue('key');
+        $keyAscii = rtrim($key);
         return Key::loadFromAsciiSafeString($keyAscii);
+    }
+
+    /**
+     * Display a input field
+     *
+     * @access public
+     * @param  string  $type        HMTL input tag type
+     * @param  string  $name        Field name
+     * @param  array   $values      Form values
+     * @param  array   $attributes  HTML attributes
+     * @param  string  $class       CSS class
+     * @return string
+     */
+    public function input($type, $name, $values = array(), array $attributes = array(), $class = '')
+    {
+
+        $html = '<input type="'.$type.'" name="'.$name.'" id="form-'.$name.'" '.$this->helper->text->e($values[$name]).' class="'.$class.'" ';
+        $html .= implode(' ', $attributes).'>';
+
+        return $html;
     }
 
     /**
@@ -83,6 +101,12 @@ class EncryptedContentHelper extends Base
         if ($value) {
             return Crypto::encrypt($value, $this->loadEncryptionKeyFromConfig());
         }
+    }
+
+    public function generateNewRandomKey()
+    {
+        $key = Key::createNewRandomKey();
+        return $key->saveToAsciiSafeString();
     }
 
 }
