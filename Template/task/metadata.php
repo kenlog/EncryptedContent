@@ -7,6 +7,7 @@
 <?php else: ?>
     <table class="table-small table-fixed">
     <tr>
+        <th class="column-10"><?= t('Project ID') ?></th>
         <th class="column-10"><?= t('Reference') ?></th>
         <th class="column-80"><?= t('Content') ?></th>
         <th class="column-10"><?= t('Action') ?></th>
@@ -17,6 +18,7 @@
     <?php foreach ($metadata as $name => $value): ?>
     <?php if (!empty($value)): ?>
     <tr>
+        <td><?= $project['id'] ?></td>
         <td><?= $name ?></td>
         <td><?= $this->text->markdown($this->EncryptedContentHelper->renderDecrypt($value)) ?></td>
         <td>
