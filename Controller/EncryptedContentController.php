@@ -78,7 +78,11 @@ class EncryptedContentController extends BaseController
         $task = $this->getTask();
         $name = $this->request->getStringParam('name');
 
-        $this->encryptedContentModel->remove($task['id'], $name);
+        if ($this->encryptedContentModel->remove($task['id'], $name)) {
+            $this->flash->success(t('Content removed successfully'));
+        } else {
+            $this->flash->failure(t('Unable to remove'));
+        }
 
         return $this->response->redirect($this->helper->url->to('EncryptedContentController', 'task', ['plugin' => 'encryptedContent', 'task_id' => $task['id'], 'project_id' => $task['project_id']]), true);
     }
@@ -103,7 +107,11 @@ class EncryptedContentController extends BaseController
     {
         $task = $this->getTask();
 
-        $this->encryptedContentModel->removeAll($task['id']);
+        if ($this->encryptedContentModel->removeAll($task['id'])) {
+            $this->flash->success(t('Content removed successfully'));
+        } else {
+            $this->flash->failure(t('Unable to remove'));
+        }
 
         return $this->response->redirect($this->helper->url->to('EncryptedContentController', 'task', ['plugin' => 'encryptedContent', 'task_id' => $task['id'], 'project_id' => $task['project_id']]), true);
     }
