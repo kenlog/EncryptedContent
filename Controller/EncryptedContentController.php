@@ -36,7 +36,7 @@ class EncryptedContentController extends BaseController
         $task = $this->getTask();
         $values = $this->request->getValues();
         
-        if ($this->request->isHTTPS()) {
+        if (!$this->request->isHTTPS()) {
             $encrypt = $this->helper->EncryptedContentHelper->EncryptedValue($values['value']);
             $this->encryptedContentModel->save($task['id'], [$encrypt]);
             $this->flash->success(t('Content created successfully'));
@@ -52,7 +52,7 @@ class EncryptedContentController extends BaseController
         $task = $this->getTask();
         $values = $this->request->getValues();
 
-        if ($this->request->isHTTPS()) {
+        if (!$this->request->isHTTPS()) {
             $encrypt = $this->helper->EncryptedContentHelper->EncryptedValue($values['value']);
             $this->encryptedContentModel->save($task['id'], [$values['name'] => $encrypt]);
             $this->flash->success(t('Content updated successfully'));
@@ -63,19 +63,75 @@ class EncryptedContentController extends BaseController
         return $this->response->redirect($this->helper->url->to('EncryptedContentController', 'task', ['plugin' => 'encryptedContent', 'task_id' => $task['id'], 'project_id' => $task['project_id']]), true);
     }
 
-    public function editTask()
+    public function unlockTask()
     {
         $project = $this->getProject();
         $task = $this->getTask();
         $name = $this->request->getStringParam('name');
+        $key = $this->request->getStringParam('key');
         $metadata = $this->encryptedContentModel->get($task['id'], $name);
+
+        $this->response->html($this->template->render('encryptedContent:task/formunlock', 
+                [
+                    'project'       => $project,
+                    'task'          => $task,
+                    'form_headline' => t('Unlock Encrypted Content'),
+                    'values'        => ['name' => $name, 'key' => $key, 'value' => $metadata],
+                ]
+            )
+        );
+    }
+
+    public function decryptTask()
+    {
+        $project = $this->getProject();
+        $task = $this->getTask();
+        $values = $this->request->getValues();
+        $metadata = $this->encryptedContentModel->get($task['id'], $values['name']);
+
+        $this->response->html($this->template->render('encryptedContent:task/decryptcontent', 
+                [
+                    'project'       => $project,
+                    'task'          => $task,
+                    'form_headline' => t('Content decrypt'),
+                    'values'        => ['name' => $values['name'], 'key' => $values['key'], 'value' => $metadata],
+                ]
+            )
+        );
+    }
+
+    public function unlockEditTask()
+    {
+        $project = $this->getProject();
+        $task = $this->getTask();
+        $name = $this->request->getStringParam('name');
+        $key = $this->request->getStringParam('key');
+        $metadata = $this->encryptedContentModel->get($task['id'], $name);
+
+        $this->response->html($this->template->render('encryptedContent:task/formunlockedit', 
+                [
+                    'project'       => $project,
+                    'task'          => $task,
+                    'form_headline' => t('Unlock Encrypted Content'),
+                    'values'        => ['name' => $name, 'key' => $key, 'value' => $metadata],
+                ]
+            )
+        );
+    }
+
+    public function editTask()
+    {
+        $project = $this->getProject();
+        $task = $this->getTask();
+        $values = $this->request->getValues();
+        $metadata = $this->encryptedContentModel->get($task['id'], $values['name']);
 
         $this->response->html($this->template->render('encryptedContent:task/form', 
                 [
                     'project'       => $project,
                     'task'          => $task,
                     'form_headline' => t('Edit Encrypted Content'),
-                    'values'        => ['name' => $name, 'value' => $metadata],
+                    'values'        => ['name' => $values['name'], 'key' => $values['key'], 'value' => $metadata],
                 ]
             )
         );

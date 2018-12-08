@@ -8,8 +8,8 @@
     <table class="table-small table-fixed">
     <tr>
         <th class="column-10"><?= t('Reference') ?></th>
-        <th class="column-80"><?= t('Content') ?></th>
-        <th class="column-10"><?= t('Action') ?></th>
+        <th class="column-60"><?= t('Content') ?></th>
+        <th class="column-30"><?= t('Action') ?></th>
     </tr>
     <div style="margin-bottom: 20px;">
         <?= $this->modal->small('trash-o', t('Remove everything'), 'EncryptedContentController', 'confirmAllTask', ['plugin' => 'encryptedContent', 'task_id' => $task['id'], 'project_id' => $project['id'], 'name' => $name], false, 'popover') ?>
@@ -24,7 +24,10 @@
                 <a href="#" class="dropdown-menu dropdown-menu-link-icon"><i class="fa fa-cog"></i><i class="fa fa-caret-down"></i></a>
                 <ul>
                     <li>
-                        <?= $this->modal->medium('edit', t('Edit'), 'EncryptedContentController', 'editTask', ['plugin' => 'encryptedContent', 'task_id' => $task['id'], 'project_id' => $project['id'], 'name' => $name], false, 'popover') ?>
+                        <?= $this->modal->medium('unlock', t('Unlock'), 'EncryptedContentController', 'unlockTask', ['plugin' => 'encryptedContent', 'task_id' => $task['id'], 'project_id' => $project['id'], 'name' => $name], false, 'popover') ?>
+                    </li>
+                    <li>
+                        <?= $this->modal->medium('edit', t('Edit'), 'EncryptedContentController', 'unlockEditTask', ['plugin' => 'encryptedContent', 'task_id' => $task['id'], 'project_id' => $project['id'], 'name' => $name], false, 'popover') ?>
                     </li>
                     <li>
                         <?= $this->modal->small('remove', t('Remove'), 'EncryptedContentController', 'confirmTask', ['plugin' => 'encryptedContent', 'task_id' => $task['id'], 'project_id' => $project['id'], 'name' => $name], false, 'popover') ?>

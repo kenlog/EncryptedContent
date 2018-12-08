@@ -20,8 +20,10 @@ class EncryptedContentHelper extends Base
     protected function loadEncryptionKeyFromConfig()
     {   
         $key = $this->request->getRawValue('key');
-        $keyAscii = rtrim($key);
-        return Key::loadFromAsciiSafeString($keyAscii);
+        if (!empty($key)) {
+            $keyAscii = rtrim($key);
+            return Key::loadFromAsciiSafeString($keyAscii);
+        }
     }
 
     /**
@@ -90,10 +92,11 @@ class EncryptedContentHelper extends Base
 
     public function renderDecrypt($value)
     {
-        if (ctype_xdigit($value)) {
+        $key = $this->loadEncryptionKeyFromConfig();
+        if (!empty($key) && ctype_xdigit($value)) {
             return Crypto::decrypt($value, $this->loadEncryptionKeyFromConfig());
         }
-        return t('Attention unencrypted content!');
+        return t('Unlock to view the content');
     }
 
     public function EncryptedValue($value)

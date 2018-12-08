@@ -14,7 +14,6 @@ class Plugin extends Base
         $this->helper->register('EncryptedContentHelper', 'Kanboard\Plugin\EncryptedContent\Helper\EncryptedContentHelper');
         //Task
         $this->template->hook->attach('template:task:sidebar:information', 'EncryptedContent:task/sidebar');
-        $this->template->hook->attach('template:task:details:bottom', 'EncryptedContent:task/metasummary');
     }
 
     public function onStartup()
