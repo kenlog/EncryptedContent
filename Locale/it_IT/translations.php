@@ -19,6 +19,6 @@ return [
     'Unlock Encrypted Content' => 'Sblocca il contenuto crittografato',
     'Content decrypt' => 'Contenuto decifrato',
     'Random key copy' => 'Copia chiave casuale',
-    'Important: saving this key in a password manager and keeping it confidential will be necessary to decrypt this content in the future.' => 'Importante: salvare questa chiave in un gestore di password e mantenerla riservata sarà necessaria per decifrare questo contenuto in futuro.',
+    'Save this key in a password manager to keep it confidential and use it to read the encrypted content in the future.' => 'Salva questa chiave in un gestore di password per mantenerla riservata e usarla per leggere il contenuto crittografato in futuro.',
     'This feature requires the use of an SSL certificate on the server' => 'Questa funzione richiede l\'uso di un certificato SSL sul server'
 ];
