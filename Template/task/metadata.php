@@ -11,9 +11,11 @@
         <th class="column-60"><?= t('Content') ?></th>
         <th class="column-30"><?= t('Action') ?></th>
     </tr>
+    <?php if ($this->user->getRoleName() == t('Project Manager') || $this->user->getRoleName() == t('Administrator')): ?>
     <div style="margin-bottom: 20px;">
         <?= $this->modal->small('trash-o', t('Remove everything'), 'EncryptedContentController', 'confirmAllTask', ['plugin' => 'encryptedContent', 'task_id' => $task['id'], 'project_id' => $project['id'], 'name' => $name], false, 'popover') ?>
     </div>
+    <?php endif ?>
     <?php foreach ($metadata as $name => $value): ?>
     <?php if (!empty($value)): ?>
     <tr>
