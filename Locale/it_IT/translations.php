@@ -13,10 +13,11 @@ return [
     'Edit Encrypted Content' => 'Modifica contenuto crittografato',
     'No Encrypted Content' => 'Nessun contenuto crittografato',
     'Key' => 'Chiave',
+    'Paste key' => 'Incolla chiave',
     'Unlock to view the content' => 'Sblocca per visualizzare il contenuto',
     'Unlock' => 'Sblocca',
     'Unlock Encrypted Content' => 'Sblocca il contenuto crittografato',
     'Content decrypt' => 'Contenuto decifrato',
-    'Random key' => 'Chiave casuale',
+    'Random key copy' => 'Copia chiave casuale',
     'Important: saving this key in a file and keeping it confidential will be necessary to decrypt this content in the future.' => 'Importante: salvare questa chiave in un file e mantenerla riservata sarà necessaria per decifrare questo contenuto in futuro.'
 ];

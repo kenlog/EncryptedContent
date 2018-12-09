@@ -14,6 +14,8 @@ class Plugin extends Base
         $this->helper->register('EncryptedContentHelper', 'Kanboard\Plugin\EncryptedContent\Helper\EncryptedContentHelper');
         //Task
         $this->template->hook->attach('template:task:sidebar:information', 'EncryptedContent:task/sidebar');
+        //Js
+        $this->hook->on('template:layout:js', array('template' => 'plugins/EncryptedContent/Assets/js/jquery.copy-to-clipboard.js'));
     }
 
     public function onStartup()
