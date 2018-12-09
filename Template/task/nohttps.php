@@ -1,0 +1,1 @@
+<h2 class="alert"><?= $form_headline ?></h2>

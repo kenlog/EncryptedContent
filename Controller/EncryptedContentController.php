@@ -12,6 +12,19 @@ use Kanboard\Plugin\EncryptedContent\Model\EncryptedContentModel;
  */
 class EncryptedContentController extends BaseController
 {
+    public function noHTTPS()
+    {
+        $project = $this->getProject();
+        $task = $this->getTask();
+
+        $this->response->html($this->helper->layout->task('EncryptedContent:task/nohttps', 
+                [   'form_headline' => t('This feature requires the use of an SSL certificate on the server'),
+                    'task' => $task,
+                    'project' => $project,
+                ]
+            )
+        );
+    }
 
     public function task()
     {
