@@ -29,9 +29,11 @@
                     <li>
                         <?= $this->modal->medium('edit', t('Edit'), 'EncryptedContentController', 'unlockEditTask', ['plugin' => 'encryptedContent', 'task_id' => $task['id'], 'project_id' => $project['id'], 'name' => $name], false, 'popover') ?>
                     </li>
+                    <?php if ($this->user->getRoleName() == t('Project Manager') || $this->user->getRoleName() == t('Administrator')): ?>
                     <li>
                         <?= $this->modal->small('remove', t('Remove'), 'EncryptedContentController', 'confirmTask', ['plugin' => 'encryptedContent', 'task_id' => $task['id'], 'project_id' => $project['id'], 'name' => $name], false, 'popover') ?>
                     </li>
+                    <?php endif ?>
                 </ul>
             </div>
         </td>
