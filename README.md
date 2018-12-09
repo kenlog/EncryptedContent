@@ -1,11 +1,6 @@
-# EncryptedContent
+# EncryptedContent :closed_lock_with_key:
+- This plugin allows the insertion of text content encrypted in the kanboard database, with the use of random keys.
 
-Script which generates a random encryption key and prints it to output.
+![screencapture-localhost-kanboard-2018-12-09-19_41_40](https://user-images.githubusercontent.com/11728231/49701298-f0763d80-fbea-11e8-88bc-15235157157b.png)
 
-From terminal:  
-vendor/bin/generate-defuse-key  
-
-run this script once and save the output to a configuration file, say in /var/www/html/secret-key.php
-
-or using the browser and calling the following path:  
-plugins/EncryptedContent/RandomKey.php
+**In development** :construction_worker:
