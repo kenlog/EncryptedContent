@@ -22,22 +22,11 @@
         <td><?= $name ?></td>
         <td><?= $this->text->markdown($this->EncryptedContentHelper->renderDecrypt($value)) ?></td>
         <td>
-            <div class="dropdown">
-                <a href="#" class="dropdown-menu dropdown-menu-link-icon"><i class="fa fa-cog"></i><i class="fa fa-caret-down"></i></a>
-                <ul>
-                    <li>
-                        <?= $this->modal->medium('unlock', t('Unlock'), 'EncryptedContentController', 'unlockTask', ['plugin' => 'encryptedContent', 'task_id' => $task['id'], 'project_id' => $project['id'], 'name' => $name], false, 'popover') ?>
-                    </li>
-                    <li>
-                        <?= $this->modal->medium('edit', t('Edit'), 'EncryptedContentController', 'unlockEditTask', ['plugin' => 'encryptedContent', 'task_id' => $task['id'], 'project_id' => $project['id'], 'name' => $name], false, 'popover') ?>
-                    </li>
-                    <?php if ($this->user->getRoleName() == t('Project Manager') || $this->user->getRoleName() == t('Administrator')): ?>
-                    <li>
-                        <?= $this->modal->small('remove', t('Remove'), 'EncryptedContentController', 'confirmTask', ['plugin' => 'encryptedContent', 'task_id' => $task['id'], 'project_id' => $project['id'], 'name' => $name], false, 'popover') ?>
-                    </li>
-                    <?php endif ?>
-                </ul>
-            </div>
+        <?= $this->modal->medium('unlock', t('Unlock'), 'EncryptedContentController', 'unlockTask', ['plugin' => 'encryptedContent', 'task_id' => $task['id'], 'project_id' => $project['id'], 'name' => $name], false, 'popover') ?>
+        <?= $this->modal->medium('edit', t('Edit'), 'EncryptedContentController', 'unlockEditTask', ['plugin' => 'encryptedContent', 'task_id' => $task['id'], 'project_id' => $project['id'], 'name' => $name], false, 'popover') ?>
+        <?php if ($this->user->getRoleName() == t('Project Manager') || $this->user->getRoleName() == t('Administrator')): ?>
+            <?= $this->modal->small('remove', t('Remove'), 'EncryptedContentController', 'confirmTask', ['plugin' => 'encryptedContent', 'task_id' => $task['id'], 'project_id' => $project['id'], 'name' => $name], false, 'popover') ?>
+        <?php endif ?>
         </td>
     </tr>
     <?php endif ?>
