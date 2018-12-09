@@ -36,13 +36,9 @@ class EncryptedContentController extends BaseController
         $task = $this->getTask();
         $values = $this->request->getValues();
         
-        if ($this->request->isHTTPS()) {
-            $encrypt = $this->helper->EncryptedContentHelper->EncryptedValue($values['value']);
-            $this->encryptedContentModel->save($task['id'], [$encrypt]);
-            $this->flash->success(t('Content created successfully'));
-        } else {
-            $this->flash->failure(t('Error required the use of HTTPS'));
-        }
+        $encrypt = $this->helper->EncryptedContentHelper->EncryptedValue($values['value']);
+        $this->encryptedContentModel->save($task['id'], [$encrypt]);
+        $this->flash->success(t('Content created successfully'));
 
         return $this->response->redirect($this->helper->url->to('EncryptedContentController', 'task', ['plugin' => 'encryptedContent', 'task_id' => $task['id'], 'project_id' => $task['project_id']]), true);
     }
@@ -52,13 +48,9 @@ class EncryptedContentController extends BaseController
         $task = $this->getTask();
         $values = $this->request->getValues();
 
-        if ($this->request->isHTTPS()) {
-            $encrypt = $this->helper->EncryptedContentHelper->EncryptedValue($values['value']);
-            $this->encryptedContentModel->save($task['id'], [$values['name'] => $encrypt]);
-            $this->flash->success(t('Content updated successfully'));
-        } else {
-            $this->flash->failure(t('Error required the use of HTTPS'));
-        }
+        $encrypt = $this->helper->EncryptedContentHelper->EncryptedValue($values['value']);
+        $this->encryptedContentModel->save($task['id'], [$values['name'] => $encrypt]);
+        $this->flash->success(t('Content updated successfully'));
 
         return $this->response->redirect($this->helper->url->to('EncryptedContentController', 'task', ['plugin' => 'encryptedContent', 'task_id' => $task['id'], 'project_id' => $task['project_id']]), true);
     }
