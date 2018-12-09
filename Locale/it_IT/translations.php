@@ -19,5 +19,5 @@ return [
     'Unlock Encrypted Content' => 'Sblocca il contenuto crittografato',
     'Content decrypt' => 'Contenuto decifrato',
     'Random key copy' => 'Copia chiave casuale',
-    'Important: saving this key in a file and keeping it confidential will be necessary to decrypt this content in the future.' => 'Importante: salvare questa chiave in un file e mantenerla riservata sarà necessaria per decifrare questo contenuto in futuro.'
+    'Important: saving this key in a password manager and keeping it confidential will be necessary to decrypt this content in the future.' => 'Importante: salvare questa chiave in un gestore di password e mantenerla riservata sarà necessaria per decifrare questo contenuto in futuro.'
 ];
