@@ -20,5 +20,7 @@ return [
     'Content decrypt' => 'Contenuto decifrato',
     'Random key copy' => 'Copia chiave casuale',
     'Save this key in a password manager to keep it confidential and use it to read the encrypted content in the future.' => 'Salva questa chiave in un gestore di password per mantenerla riservata e usarla per leggere il contenuto crittografato in futuro.',
-    'This feature requires the use of an SSL certificate on the server' => 'Questa funzione richiede l\'uso di un certificato SSL sul server'
+    'This feature requires the use of an SSL certificate on the server' => 'Questa funzione richiede l\'uso di un certificato SSL sul server',
+    'The key has been deleted from the clipboard' => 'La chiave è stata cancellata dagli appunti',
+    'Delete the key from the clipboard' => 'Cancella la chiave dagli appunti'
 ];
