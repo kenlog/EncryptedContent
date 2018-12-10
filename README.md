@@ -2,7 +2,7 @@
 **In development** :construction_worker:
 - This plugin allows the insertion of text content encrypted in the kanboard database, with the use of random keys.
 
-![screencapture-EncryptedContent](https://user-images.githubusercontent.com/11728231/49744966-3dffb280-fc9e-11e8-9c0a-1e8d018b9034.jpg)
+![screencapture-EncryptedContent](https://user-images.githubusercontent.com/11728231/49745723-e6fadd00-fc9f-11e8-972a-5d55cefc4f3a.jpg)
 
 Author
 ------------
