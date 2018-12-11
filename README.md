@@ -3,7 +3,7 @@
 - This plugin allows the insertion of text content encrypted in the kanboard database, with the use of random keys.
 - To store keys, it is recommended to use a password manager such as [KeePassX](https://github.com/keepassx/keepassx) or similar.
 
-![screencapture-EncryptedContent](https://user-images.githubusercontent.com/11728231/49745723-e6fadd00-fc9f-11e8-972a-5d55cefc4f3a.jpg)
+![screencapture-EncryptedContent](https://user-images.githubusercontent.com/11728231/49815804-e3815780-fd6c-11e8-8a3b-fd70f1f78cab.jpg)
 
 Author
 ------------
