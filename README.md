@@ -1,6 +1,7 @@
 # EncryptedContent :closed_lock_with_key:
 **In development** :construction_worker:
 - This plugin allows the insertion of text content encrypted in the kanboard database, with the use of random keys.
+- To store keys, it is recommended to use a password manager such as [KeePassX](https://github.com/keepassx/keepassx) or similar.
 
 ![screencapture-EncryptedContent](https://user-images.githubusercontent.com/11728231/49745723-e6fadd00-fc9f-11e8-972a-5d55cefc4f3a.jpg)
 
@@ -36,3 +37,8 @@ git clone https://github.com/kenlog/EncryptedContent.git
 :bug: Reporting Issues
 ------------
 Please [create an issue](https://github.com/kenlog/EncryptedContent/issues/new) for any bugs you've found.
+
+Cryptography Details
+=====================
+This plugin was created using the php-encryption library.
+[More information](https://github.com/defuse/php-encryption)
