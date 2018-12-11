@@ -39,6 +39,6 @@ git clone https://github.com/kenlog/EncryptedContent.git
 Please [create an issue](https://github.com/kenlog/EncryptedContent/issues/new) for any bugs you've found.
 
 Cryptography Details
-=====================
+------------
 This plugin was created using the php-encryption library.
 [More information](https://github.com/defuse/php-encryption)
