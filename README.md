@@ -10,6 +10,10 @@ Author
 - Valentino Pesce
 - License MIT
 
+Contributor
+------------
+- [Craig Crosby](https://github.com/creecros)
+
 Requirements
 ------------
 Kanboard >= v1.0.48 
