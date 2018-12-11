@@ -1,5 +1,5 @@
 # EncryptedContent :closed_lock_with_key:
-**In development** :construction_worker:
+
 - This plugin allows the insertion of text content encrypted in the kanboard database, with the use of random keys.
 - To store keys, it is recommended to use a password manager such as [KeePassX](https://github.com/keepassx/keepassx) or similar.
 
