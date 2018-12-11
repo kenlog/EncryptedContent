@@ -57,7 +57,7 @@ class EncryptedContentHelper extends Base
      */
     public function renderEncryptedtextEditor($name, $values = array(), array $attributes = array())
     {
-        if ($values[$name] == null) {
+        if (!isset($values[$name])) {
             $content = null;
         } elseif (ctype_xdigit($values[$name])) {
 			$content = Crypto::decrypt($values[$name], $this->loadEncryptionKeyFromConfig());
