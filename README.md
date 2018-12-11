@@ -8,7 +8,11 @@
 Author
 ------------
 - Valentino Pesce
-- License MIT
+- [License MIT](https://github.com/kenlog/EncryptedContent/blob/master/LICENSE)
+
+Contributor
+------------
+- [Craig Crosby](https://github.com/creecros)
 
 Requirements
 ------------

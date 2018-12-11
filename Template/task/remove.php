@@ -11,6 +11,6 @@
     <div class="form-actions">
         <?= $this->url->link(t('Yes'), 'EncryptedContentController', 'removeTask', ['plugin' => 'encryptedContent', 'task_id' => $task['id'], 'project_id' => $task['project_id'], 'name' => $name], true, 'btn btn-red') ?>
         <?= t('or') ?>
-        <?= $this->url->link(t('cancel'), 'EncryptedContentController', 'task', ['plugin' => 'encryptedContent', 'task_id' => $task['id'], 'project_id' => $task['project_id']]) ?>
+        <?= $this->url->link(t('Cancel'), 'EncryptedContentController', 'task', ['plugin' => 'encryptedContent', 'task_id' => $task['id'], 'project_id' => $task['project_id']]) ?>
     </div>
 </div>
