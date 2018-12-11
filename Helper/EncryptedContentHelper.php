@@ -40,7 +40,7 @@ class EncryptedContentHelper extends Base
     public function input($type, $name, $values = array(), array $attributes = array(), $class = '')
     {
 
-        $html = '<input type="'.$type.'" name="'.$name.'" id="form-'.$name.'" '.$this->helper->text->e($values[$name]).' class="'.$class.'" ';
+        $html = '<input type="'.$type.'" name="'.$name.'" id="form-'.$name.'" class="'.$class.'" ';
         $html .= implode(' ', $attributes).'>';
 
         return $html;
