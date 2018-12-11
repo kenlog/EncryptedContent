@@ -1,5 +1,5 @@
 <div class="page-header">
-    <h2><?= t('Remove everything encrypted content') ?></h2>
+    <h2><?= t('Remove all encrypted content') ?></h2>
 </div>
 
 <div class="confirm">
@@ -10,6 +10,6 @@
     <div class="form-actions">
         <?= $this->url->link(t('Yes'), 'EncryptedContentController', 'removeAllTask', ['plugin' => 'encryptedContent', 'task_id' => $task['id'], 'project_id' => $task['project_id']], true, 'btn btn-red') ?>
         <?= t('or') ?>
-        <?= $this->url->link(t('cancel'), 'EncryptedContentController', 'task', ['plugin' => 'encryptedContent', 'task_id' => $task['id'], 'project_id' => $task['project_id']]) ?>
+        <?= $this->url->link(t('Cancel'), 'EncryptedContentController', 'task', ['plugin' => 'encryptedContent', 'task_id' => $task['id'], 'project_id' => $task['project_id']]) ?>
     </div>
 </div>
