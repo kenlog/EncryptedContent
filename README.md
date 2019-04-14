@@ -8,6 +8,9 @@
 - This plugin allows the insertion of text content encrypted in the kanboard database, with the use of random keys.
 - To store keys, it is recommended to use a password manager such as [KeePassXC](https://github.com/keepassxreboot/keepassxc) or similar.
 
+### GDPR compliance. Protected from any data breach.  
+_EU General Data Protection Regulation_
+
 ![screencapture-EncryptedContent](https://user-images.githubusercontent.com/11728231/49815804-e3815780-fd6c-11e8-8a3b-fd70f1f78cab.jpg)
 
 Author
