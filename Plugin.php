@@ -42,7 +42,7 @@ class Plugin extends Base
     }
     public function getPluginDescription()
     {
-        return t('This plugin allows the insertion of text content encrypted in the kanboard database, with the use of random keys.');
+        return t('This plugin allows the insertion of text content encrypted in the kanboard database, with the use of random keys, GDPR compliance.');
     }
     public function getPluginAuthor()
     {
