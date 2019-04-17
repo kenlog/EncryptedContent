@@ -46,6 +46,10 @@ Clone the repository:
 ```console 
 git clone https://github.com/kenlog/EncryptedContent.git
 ```
+To-do list
+------------
+- [ ] Incorporate the upload of encrypted files
+
 :bug: Reporting Issues
 ------------
 Please [create an issue](https://github.com/kenlog/EncryptedContent/issues/new) for any bugs you've found.
