@@ -1,3 +1,9 @@
+## Checkout our latest project
+[![](https://raw.githubusercontent.com/docpht/docpht/master/public/assets/img/logo.png)](https://github.com/docpht/docpht)
+
+- With [DocPHT](https://github.com/docpht/docpht) you can take notes and quickly document anything and without the use of any database.
+-----------
+
 # EncryptedContent :closed_lock_with_key:
 [![Latest release](https://img.shields.io/github/release/kenlog/EncryptedContent.svg)](https://github.com/kenlog/EncryptedContent/releases)
 [![GitHub license](https://img.shields.io/github/license/Naereen/StrapDown.js.svg)](https://github.com/kenlog/EncryptedContent/blob/master/LICENSE)
