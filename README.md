@@ -11,6 +11,8 @@
 [![Open Source Love](https://badges.frapsoft.com/os/v1/open-source.svg?v=103)]()
 [![Downloads](https://img.shields.io/github/downloads/kenlog/EncryptedContent/total.svg)](https://github.com/kenlog/EncryptedContent/releases)
 
+<noscript><a href="https://liberapay.com/kenlog/donate"><img alt="Donate using Liberapay" src="https://liberapay.com/assets/widgets/donate.svg"></a></noscript>
+
 - This plugin allows the insertion of text content encrypted in the kanboard database, with the use of random keys.
 - To store keys, it is recommended to use a password manager such as [KeePassXC](https://github.com/keepassxreboot/keepassxc) or similar.
 
