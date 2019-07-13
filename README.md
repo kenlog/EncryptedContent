@@ -12,6 +12,7 @@
 [![Downloads](https://img.shields.io/github/downloads/kenlog/EncryptedContent/total.svg)](https://github.com/kenlog/EncryptedContent/releases)
 
 <noscript><a href="https://liberapay.com/kenlog/donate"><img alt="Donate using Liberapay" src="https://liberapay.com/assets/widgets/donate.svg"></a></noscript>
+<a href="https://paypal.me/kenlog"><img src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_SM.gif" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Donate with PayPal button" /></a>
 
 - This plugin allows the insertion of text content encrypted in the kanboard database, with the use of random keys.
 - To store keys, it is recommended to use a password manager such as [KeePassXC](https://github.com/keepassxreboot/keepassxc) or similar.
